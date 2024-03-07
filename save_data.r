@@ -1,3 +1,5 @@
+library(tidyverse)
+
 # Download raw Excel
 
 url <- "https://github.com/b-rodrigues/rap4all/raw/master/datasets/vente-maison-2010-2021.xlsx"
@@ -9,10 +11,10 @@ raw_data <- tempfile(fileext = ".xlsx")
 
 download.file(url, raw_data, method = "auto", mode = "wb")
 
-sheets <- excel_sheets(raw_data)
+sheets <- readxl::excel_sheets(raw_data)
 
 read_clean <- function(..., sheet){
-  read_excel(..., sheet = sheet) |>
+  readxl::read_excel(..., sheet = sheet) |>
     mutate(year = sheet)
 }
 
@@ -22,8 +24,8 @@ raw_data <- map(
               skip = 10,
               sheet = .)
                    ) |>
-  bind_rows() |>
-  clean_names()
+  dplyr::bind_rows() |>
+  janitor::clean_names()
 
 raw_data <- raw_data |>
   rename(
