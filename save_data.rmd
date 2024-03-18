@@ -1,0 +1,17 @@
+---
+title: "Nominal house prices data in Luxembourg - Data cleaning"
+author: "Patrick S. Tennant" 
+date: "`r Sys.Date()`"
+---
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(janitor)
+library(purrr)
+library(readxl)
+library(rvest)
+library(stringr)
+```
+
+## Downloading the data
