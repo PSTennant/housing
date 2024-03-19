@@ -27,7 +27,7 @@ The function below uses the permanent URL from the Open Data
 Portal to access the data, but I have also rehosted the data, 
 and use my link to download the data (for archival purposes):
 
-```{r, eval = FALSE}
+```{r, include = FALSE}
 get_raw_data <- function(url = "https://is.gd/1vvBAc"){
 
   raw_data <- tempfile(fileext = ".xlsx")
