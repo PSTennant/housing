@@ -27,7 +27,7 @@ The function below uses the permanent URL from the Open Data
 Portal to access the data, but I have also rehosted the data, 
 and use my link to download the data (for archival purposes):
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 get_raw_data <- function(url = "https://is.gd/1vvBAc"){
 
   raw_data <- tempfile(fileext = ".xlsx")
@@ -223,7 +223,7 @@ commune_level_data <- make_commune_level_data(flat_data)
 We now save the dataset in a folder for further analysis (keep chunk option to
 `eval = FALSE` to avoid running it when knitting):
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 write.csv(commune_level_data,
           "datasets/house_prices_commune_level_data.csv",
           row.names = FALSE)
